@@ -1,1 +1,1 @@
-# kvm-cloudimg-vm.sh
+# kvm-cloudimg-vm
