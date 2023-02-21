@@ -1,0 +1,6 @@
+#cloud-config
+password: Yourpassword_here
+chpasswd: {expire: False}
+ssh_pwauth: True
+sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+timezone: Europe/Madrid
