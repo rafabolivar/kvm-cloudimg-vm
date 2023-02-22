@@ -1,6 +1,9 @@
 #cloud-config
-password: Yourpassword_here
-chpasswd: {expire: False}
+password: <your_password_goes_here>
+chpasswd: { expire: False }
 ssh_pwauth: True
-sudo: ["ALL=(ALL) NOPASSWD:ALL"]
-timezone: Europe/Madrid
+package_update: true
+packages:
+    - qemu-guest-agent
+runcmd:
+   - systemctl start qemu-guest-agent.service 
