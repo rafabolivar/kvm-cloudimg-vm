@@ -3,7 +3,7 @@ local-hostname: ubuntu01
 network:
   version: 2
   interfaces:
-    ens3:
+    enp1s0:
        dhcp4: true
 #      dhcp4: false
 #      addresses:
