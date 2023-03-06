@@ -8,12 +8,15 @@ First step is to clone this repo in your KVM Host:
     you@yourhost$ cd ~/test
     you@yourhost$ chmod u+x *.sh
 
-Then you have to modify the `ubuntu` user password to fit your needs:
+Then you have to modify the `variables.var` file to fit your needs:
 
-    you@yourhost$ vi ~/test/user-data
+    you@yourhost$ vi ~/test/variables.var
 
-Find the line `password: <your_password_goes_here>`  and change to your desired password, for instance:
- `password: Password123`
+`BASEDIR`  The directory where your VM Disks will be created
+`VM_NAME` The desired name for your VM
+`PASSWORD` The password for the Ubuntu user in your VM
+`VRAM` The amount of Virtual RAM for your VM 
+`VCPUS` The amount of Virtual CPUs for your VM
 
 There are other parameters that you can modify, regarding the network in the `~/test/network-config`
 and the `~/test/meta-data` files.
