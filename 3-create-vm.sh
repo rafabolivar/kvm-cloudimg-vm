@@ -1,2 +1,10 @@
 #!/bin/bash
-sudo virt-install --import --name ubuntu01 --memory 2048 --vcpus 2 --disk /opt/kvm/datastore1/imgs/ubuntu-22.10-server-cloudimg-amd64.img,format=qcow2,bus=virtio --cdrom=/opt/kvm/datastore1/imgs/ubuntu.iso --network bridge=br0 --osinfo=ubuntu22.10 --graphics vnc  &
+
+THIS_DIR="$( cd "$( dirname "$0" )" && pwd )"
+BASEDIR=`cat $THIS_DIR/variables.var | grep BASEDIR | awk -F= {'print $2'} | awk -F\' {'print $2'}`
+VM_NAME=`cat $THIS_DIR/variables.var | grep VM_NAME | awk -F= {'print $2'} | awk -F\' {'print $2'}`
+PASSWORD=`cat $THIS_DIR/variables.var | grep PASSWORD | awk -F= {'print $2'} | awk -F\' {'print $2'}`
+VRAM=`cat $THIS_DIR/variables.var | grep VRAM | awk -F= {'print $2'} | awk -F\' {'print $2'}`
+VCPUS=`cat $THIS_DIR/variables.var | grep VCPUS | awk -F= {'print $2'} | awk -F\' {'print $2'}`
+
+sudo virt-install --import --name ubuntuk8s --memory $VRAM --vcpus $VCPUS --disk $BASEDIR/$VM_NAME.img,format=qcow2,bus=virtio --cdrom=$BASEDIR/$VM_NAME.iso --network bridge=br0 --osinfo=ubuntu22.10 --graphics vnc  &
