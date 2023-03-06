@@ -1,0 +1,5 @@
+BASEDIR='/opt/kvm/datastore1/imgs/'
+VM_NAME='ubuntuk8s'
+PASSWORD='YOUR_PASSWORD_GOES_HERE'
+VRAM='4096'
+VCPUS='4'
